@@ -1,113 +1,374 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(myapplication());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class myapplication extends StatelessWidget {
+  const myapplication({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      title: "My app",
+      home: homepage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class homepage extends StatelessWidget {
+  const homepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+    Size size = MediaQuery.of(context).size;
+    EdgeInsets edgeInsets = MediaQuery.of(context).viewPadding;
+    return
+        // Padding(
+        //     padding: edgeInsets,
+        SafeArea(
+            //top: false,
+            child: Scaffold(
+      appBar: new AppBar(
+        title: new Text("Home Page"),
       ),
+
+
+
+
+   ################################################# 
+   ###################   CENTER  ################### 
+   ################################################# 
+
+  
+
+
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+        heightFactor: 2,
+        widthFactor: 2,
+        child: new Text("Ahmad"),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+
+
+
+  #################################################### 
+  ###################   Container  ###################
+  ####################################################
+
+
+
+      body: Center(
+          child: Container(
+        // color: Colors.blue, // container color
+        padding: EdgeInsets.all(8.0), // container padding
+        constraints: BoxConstraints.expand(),
+        // constraints: BoxConstraints(maxHeight: 250),  // perameter maxhight,maxwight etc
+        alignment: Alignment.center,   // Text alignment means center
+        //width: 200,
+        //height: 400,
+        // transform: Matrix4.rotationZ(0.5), //container transform rotationtion
+
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.white,
+                Colors.red,
+              ],
+            ),
+            shape: BoxShape.circle,
+            // borderRadius: BorderRadius.only(
+            // topLeft: Radius.circular(10.0),
+            // bottomLeft: Radius.circular(10.0)),
+            color: Colors.blue,
+            border: Border.all(
+              color: Colors.black,
+              width: 4,
+              style: BorderStyle.solid,
+            )),
+
+        child: new Text("Ahmad"), // container child: new Text("Ahmad"),
+      )));
+
+
+
+#################################################### 
+###################  Row & Colum ################### 
+#################################################### 
+
+
+
+
+      body: Center(
+          child: Container(
+        height: 200,
+        width: 200,
+        color: Colors.red,
+        child: Column(
+            //Row  //Column
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment:  MainAxisAlignment.spaceAround, //moving the text
+            crossAxisAlignment: CrossAxisAlignment.start,
+            verticalDirection: VerticalDirection.down, // change derection
+            textDirection: TextDirection.rtl,
+            children: <Widget>[
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+            ]),
+      ))
+
+
+
+
+  #################################################### 
+  ###################     Wrap     ################### 
+  #################################################### 
+
+
+
+
+      body: Center(
+          child: Container(
+        color: Colors.red,
+        width: 200,
+        height: 200,
+        child: Wrap(
+            //Row  //Column
+            direction: Axis.horizontal,
+            //verticalDirection: VerticalDirection.down, // change derection
+            alignment: WrapAlignment.spaceAround,
+            runAlignment: WrapAlignment.spaceAround,
+            textDirection: TextDirection.rtl,
+            spacing: 30,  // spacing horizental tex
+            runSpacing: 20, // spacing vertical tex
+            children: <Widget>[
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+              new Text("Ahmad"),
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"), // container child: new Text("Ahmad")
+              new Text("Ahmad"),
+            ]),
+      ))
+
+
+
+#################################################### 
+###################     Stack    ################### 
+#################################################### 
+
+
+
+      body: Center(
+        child: Container(
+            width: 400,
+            height: 700,
+            color: Colors.grey,
+            child: Stack(alignment: Alignment.topRight, children: <Widget>[
+              Container(
+                width: 200,
+                height: 200,
+                color: Colors.blue,
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                ),
+              ),
+            ])),
+      )
+
+
+
+#################################################### 
+###################     Padding  ################### 
+#################################################### 
+
+
+
+
+      body: Center(
+        child: Container(
+          color: Colors.blue,
+          child: Padding(
+            // padding: const EdgeInsets.all(25),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            // padding: EdgeInsets.only(
+            //   right: 20,
+            //   top: 20,
+            // ),
+            // padding: EdgeInsets.lerp(EdgeInsets.all(10), EdgeInsets.all(20), 0.0),
+            child: Text(
+              "Hello, world",
+              style: TextStyle(color: Colors.black, fontSize: 50),
+            ),
+          ),
+        ),
+      )
+
+
+
+
+#################################################### 
+###################  Media Qurey ################### 
+#################################################### 
+
+
+
+
+      body: Center(
+          child: Container(
+              child: Row(
+        children: <Widget>[
+          // Container(
+          //   width: size.shortestSide,
+          //   height: size.shortestSide,
+          //   color: Colors.red,
+          // ),
+          Container(
+            width: size.width / 2,
+            height: size.height / 2,
+            color: Colors.red,
+          ),
+          Container(
+            width: size.width / 2,
+            height: size.height / 2,
+            color: Colors.blue,
+          )
+        ],
+      )))
+
+
+
+
+#################################################### 
+###################       Text   ###################
+####################################################     
+
+
+
+      body: Center(
+          child: Text("Ahmad Raza",
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.blue,
+                  //decoration: TextDecoration.underline,
+                  decoration: TextDecoration.combine([
+                    TextDecoration.underline,
+                    TextDecoration.overline,
+                  ]),
+                  decorationThickness: 2.0,
+                  decorationColor: Colors.red,
+                  decorationStyle: TextDecorationStyle.wavy,
+                  letterSpacing: 20,
+                  wordSpacing: 20,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black,
+                      blurRadius: 2.0,
+                      offset: Offset(4.0, 2.0),
+                    )
+                  ])))
+
+
+
+#################################################### 
+###################  RichText    ################### 
+#################################################### 
+
+
+
+
+      body: Center(
+          child: RichText(
+              text: TextSpan(
+                  text: "Ahmad is a good boy",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 22.0,
+                  )))),
+
+
+
+
+#################################################### 
+###################  Alignment   ################### 
+####################################################
+
+
+      body: Stack(children: [
+        Align(
+          alignment: Alignment.bottomCenter,
+          // heightFactor: 1,
+          // widthFactor: 1,
+          child: Container(
+            width: 200,
+            height: 200,
+            color: Colors.green,
+            child: Align(
+                // alignment: Alignment.bottomCenter,
+                alignment: FractionalOffset(0.5, 0.5),
+                heightFactor: 20,
+                widthFactor:20,
+                child: Text("Ahmad")),
+          ),
+        ),
+      ]),
+
+
+
+
+#################################################### 
+###################  Expanded    ###################
+#################################################### 
+
+
+
+      body: Column(
+        children: [
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+              Expanded(
+                child: Center(
+                  child: Text("Expended",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 22.0)),
+                ),
+              ),
+              IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+            ],
+          ),
+          Container(
+            width: 400,
+            height: 300,
+            color: Colors.blue,
+          )
+        ],
+      ),
+
+
+
     );
   }
 }
